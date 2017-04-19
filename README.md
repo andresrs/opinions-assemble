@@ -8,11 +8,16 @@ A server app that allows registering attendies to an assembly and facilitates vo
 ### Requisites
 
 * PHP 7.1 (it could work for earlier versions, but it hasn't been tested)
-* Laravel 5.4
+* Composer 1.4 or later (be sure to follow the [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx](instructions to install))
+* A MySQL or MariaDB database server running.
 
 OS X & Linux:
 
-*Under construction*
+1. Download the latest release [https://github.com/andresrs/opinions-assemble/releases](here).
+1. Unzip the package.
+1. Upload the contents of the folder to your server.
+1. Run `composer install` inside the directory.
+1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1
 
 ## Usage example
 
