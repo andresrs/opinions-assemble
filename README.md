@@ -16,7 +16,13 @@ OS X & Linux:
 1. Download the latest release [https://github.com/andresrs/opinions-assemble/releases](here).
 1. Unzip the package.
 1. Upload the contents of the folder to your server.
-1. Run `composer install` inside the directory.
+1. Run the following commands on the server:
+
+		```
+			composer install
+			php artisian migrate
+		```
+
 1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1
 
 ## Usage example
@@ -35,6 +41,8 @@ OS X & Linux:
 ## Resources
 
 * [How to write a great README for your GitHub project](https://dbader.org/blog/write-a-great-readme-for-your-github-project) by Dan Bader
+* [HTML5Boilerplate](https://html5boilerplate.com/) and [http://www.initializr.com/](Initializr).
+	* Updated to [jQuery 3.2.1](https://jquery.com/) and [Bootstrap 3.3.7](http://getbootstrap.com/).
 
 ## Meta
 
