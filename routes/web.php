@@ -44,11 +44,26 @@ Route::post('/participant', function (Request $request) {
 	return redirect('/participant');
 });
 
-Route::get('/participant_verify', function (Request $request) {
-    //
+Route::get('/participant_verify', function () {
+    return view('participant_verify');
 });
 
 Route::post('/participant_verify', function (Request $request) {
-    //
-});
+    $validator = Validator::make($request->all(), [
+		'user_id' => 'required|max:15',
+	]);
 
+	if ($validator->fails()) {
+		return redirect('/')->withInput()->withErrors($validator);
+	}
+
+	$view_params = ['search_id' => $request->user_id,];
+
+	$participants = DB::select("select * from participants where user_id = :user_id", ['user_id' => $request->user_id]);
+	$participant = 0;
+	if(count($participants) > 0) {
+		$view_params['participant'] = $participants[0];
+	}
+
+    return view('participant_verify', $view_params);
+});
