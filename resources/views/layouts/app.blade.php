@@ -6,19 +6,19 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="{{ URL::asset('apple-touch-icon.png') }}">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
         </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-theme.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/main.css') }}">
+        <script src="{{ URL::asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -78,11 +78,11 @@
         <p>&copy; Andres Rosado-Sep&uacute;lveda 2017</p>
       </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="{{ URL::asset('js/vendor/jquery-3.2.1.min.js') }}"><\/script>')</script>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="{{ URL::asset('js/vendor/bootstrap.min.js') }}"></script>
 
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="{{ URL::asset('js/plugins.js') }}"></script>
+        <script src="{{ URL::asset('js/main.js') }}"></script>
     </body>
 </html>
