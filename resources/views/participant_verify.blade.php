@@ -4,16 +4,16 @@
 	<div class="panel-heading">
 		Search for participants
 	</div>
-	<form action="{{ url('participant_verify') }}" method="POST" class="form-horizontal">
-		{{ csrf_field() }}
-		<div class="panel-body">
+	<div class="panel-body">
+		<form action="{{ url('participant_verify') }}" method="POST" class="form-horizontal">
+			{{ csrf_field() }}
 			<!-- Display Validation Errors -->
 			@include('common.errors')
 
 			<div class="form-group">
 				<label for="user_id" class="col-sm-3 control-label">User ID</label>
 
-				<div class="col-sm-6">
+				<div class="col-sm-9">
 					<input type="text" name="user_id" id="participant-userid" class="form-control">
 				</div>
 			</div>
@@ -50,15 +50,13 @@
 				</div>
 				@endif
 			@endif
-		</div>
-		<div class="panel-footer">
 			<div class="form-group">
-				<div class="col-sm-offset-3 col-sm-6">
+				<div class="col-sm-offset-3 col-sm-9">
 					<button type="submit" class="btn btn-default">
 						Search <i class="fa fa-search"></i>
 					</button>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</div>
 @endsection

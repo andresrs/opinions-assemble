@@ -66,11 +66,7 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Menu</p>
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-12">
 			<div class="panel panel-primary">
 @yield('content')
 			</div>
@@ -82,7 +78,9 @@
       <footer>
         <p>&copy; Andres Rosado-Sep&uacute;lveda 2017</p>
       </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </div> <!-- /container -->
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="{{ URL::asset('js/vendor/jquery-3.2.1.min.js') }}"><\/script>')</script>
 
 	<script src="{{ URL::asset('js/vendor/bootstrap.min.js') }}"></script>
