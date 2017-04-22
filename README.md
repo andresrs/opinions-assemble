@@ -20,7 +20,7 @@ OS X & Linux:
 
 		```
 			composer install
-			php artisian migrate
+			php artisan migrate
 		```
 
 1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1
