@@ -33,13 +33,13 @@ Route::post('/participant', function (Request $request) {
 		return redirect('/')->withInput()->withErrors($validator);
 	}
 
-	$participant = new Participant;
-	$participant->name = $request->name;
-	$participant->email = $request->email;
-	$participant->user_id = $request->user_id;
-	$participant->code = random_int(100000, 999999);
-
-	$participant->save();
+	Participant::create([
+		'name' => $request->name,
+		'email' => $request->email,
+		'user_id' => $request->user_id,
+		'code' => random_int(100000, 999999),
+		'registered_on' => Carbon\Carbon::now(),
+	]);
 
 	return redirect('/participant');
 });
@@ -59,10 +59,9 @@ Route::post('/participant_verify', function (Request $request) {
 
 	$view_params = ['search_id' => $request->user_id,];
 
-	$participants = DB::select("select * from participants where user_id = :user_id", ['user_id' => $request->user_id]);
-	$participant = 0;
-	if(count($participants) > 0) {
-		$view_params['participant'] = $participants[0];
+	$participant = Participant::where('user_id', $request->user_id)->first();
+	if($participant) {
+		$view_params['participant'] = $participant;
 	}
 
     return view('participant_verify', $view_params);

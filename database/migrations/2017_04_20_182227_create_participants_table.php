@@ -19,6 +19,7 @@ class CreateParticipantsTable extends Migration
 			$table->string('email');
 			$table->string('user_id');
 			$table->string('code');
+			$table->timestamp('registered_on');
 
 			$table->index('user_id');
 
