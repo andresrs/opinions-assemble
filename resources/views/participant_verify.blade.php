@@ -18,6 +18,14 @@
 				</div>
 			</div>
 
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-9">
+					<button type="submit" class="btn btn-default">
+						Search <i class="fa fa-search"></i>
+					</button>
+				</div>
+			</div>
+
 			@if (isset($search_id))
 			<hr>
 			<h4>
@@ -50,13 +58,6 @@
 				</div>
 				@endif
 			@endif
-			<div class="form-group">
-				<div class="col-sm-offset-3 col-sm-9">
-					<button type="submit" class="btn btn-default">
-						Search <i class="fa fa-search"></i>
-					</button>
-				</div>
-			</div>
 		</form>
 	</div>
 @endsection
