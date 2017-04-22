@@ -21,9 +21,9 @@
         <script src="{{ URL::asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+	<!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -35,6 +35,7 @@
           </button>
           <a class="navbar-brand" href="#">Opinions Assemble</a>
         </div>
+		<!--
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
@@ -45,11 +46,13 @@
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
-        </div><!--/.navbar-collapse -->
+        </div>
+		--><!--/.navbar-collapse -->
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
+<!--
     <div class="jumbotron">
       <div class="container">
         <h1>Hello, world!</h1>
@@ -57,18 +60,19 @@
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>
-
+-->
+	<br>
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
           <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>Menu</p>
         </div>
         <div class="col-md-8">
-          <h2>Heading</h2>
+			<div class="panel panel-primary">
 @yield('content')
+			</div>
        </div>
       </div>
 
@@ -78,11 +82,11 @@
         <p>&copy; Andres Rosado-Sep&uacute;lveda 2017</p>
       </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{ URL::asset('js/vendor/jquery-3.2.1.min.js') }}"><\/script>')</script>
+	<script>window.jQuery || document.write('<script src="{{ URL::asset('js/vendor/jquery-3.2.1.min.js') }}"><\/script>')</script>
 
-        <script src="{{ URL::asset('js/vendor/bootstrap.min.js') }}"></script>
+	<script src="{{ URL::asset('js/vendor/bootstrap.min.js') }}"></script>
 
-        <script src="{{ URL::asset('js/plugins.js') }}"></script>
-        <script src="{{ URL::asset('js/main.js') }}"></script>
+	<script src="{{ URL::asset('js/plugins.js') }}"></script>
+	<script src="{{ URL::asset('js/main.js') }}"></script>
     </body>
 </html>

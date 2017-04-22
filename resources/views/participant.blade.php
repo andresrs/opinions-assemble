@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="panel-body">
-        <!-- Display Validation Errors -->
-        @include('common.errors')
+	<div class="panel-heading">Add Assembly Participant</div>
+	<form action="{{ url('participant') }}" method="POST" class="form-horizontal">
+		{{ csrf_field() }}
 
-        <form action="{{ url('participant') }}" method="POST" class="form-horizontal">
-            {{ csrf_field() }}
-			<fieldset>
+		<fieldset>
+			<div class="panel-body">
+<!-- Display Validation Errors -->
+@include('common.errors')
 				<div class="form-group">
 					<label for="name" class="col-sm-3 control-label">Name</label>
 
@@ -29,6 +30,8 @@
 						<input type="text" name="user_id" id="participant-userid" class="form-control">
 					</div>
 				</div>
+			</div>
+			<div class="panel-footer">
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-6">
 						<button type="submit" class="btn btn-default">
@@ -36,7 +39,7 @@
 						</button>
 					</div>
 				</div>
-			</fieldset>
-        </form>
-    </div>
+		    </div>
+		</fieldset>
+	</form>
 @endsection

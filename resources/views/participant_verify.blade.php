@@ -1,18 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="panel-body">
-        <!-- Display Validation Errors -->
-        @include('common.errors')
+	<div class="panel-heading">
+		Search for participants
+	</div>
+	<form action="{{ url('participant_verify') }}" method="POST" class="form-horizontal">
+		{{ csrf_field() }}
+		<div class="panel-body">
+			<!-- Display Validation Errors -->
+			@include('common.errors')
 
-		@if (isset($search_id))
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				Searching for {{ $search_id }}
+			<div class="form-group">
+				<label for="user_id" class="col-sm-3 control-label">User ID</label>
+
+				<div class="col-sm-6">
+					<input type="text" name="user_id" id="participant-userid" class="form-control">
+				</div>
 			</div>
-			<div class="panel-body">
+
+			@if (isset($search_id))
+			<hr>
+			<h4>
+				Searching for {{ $search_id }}
+			</h4>
 				@if (isset($participant))
-				<table class="table table-striped task-table">
+				<table class="table table-striped">
 					<thead>
 						<th>Name</th>
 						<th>E-mail</th>
@@ -33,31 +45,20 @@
 					</tbody>
 				</table>
 				@else
-				<p>
+				<div class="alert alert-danger">
 					User not found.
-				</p>
+				</div>
 				@endif
+			@endif
+		</div>
+		<div class="panel-footer">
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-6">
+					<button type="submit" class="btn btn-default">
+						<i class="fa fa-plus"></i> Search
+					</button>
+				</div>
 			</div>
 		</div>
-		@endif
-        <form action="{{ url('participant_verify') }}" method="POST" class="form-horizontal">
-            {{ csrf_field() }}
-
-            <div class="form-group">
-                <label for="user_id" class="col-sm-3 control-label">User ID</label>
-
-                <div class="col-sm-6">
-                    <input type="text" name="user_id" id="participant-userid" class="form-control">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
-                        <i class="fa fa-plus"></i> Search
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div>
+	</form>
 @endsection
