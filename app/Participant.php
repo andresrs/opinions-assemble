@@ -9,7 +9,10 @@ class Participant extends Model {
 		'name',
 		'email',
 		'user_id',
-		'code',
+		'registered_on',
+	];
+
+	protected $dates = [
 		'registered_on',
 	];
 }

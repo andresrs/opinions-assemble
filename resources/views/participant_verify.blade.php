@@ -5,7 +5,7 @@
 		Search for participants
 	</div>
 	<div class="panel-body">
-		<form action="{{ url('participant_verify') }}" method="POST" class="form-horizontal">
+		<form action="{{ url('participant/verify') }}" method="POST" class="form-horizontal">
 			{{ csrf_field() }}
 			<!-- Display Validation Errors -->
 			@include('common.errors')

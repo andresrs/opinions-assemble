@@ -18,8 +18,8 @@ class CreateParticipantsTable extends Migration
 			$table->string('name');
 			$table->string('email');
 			$table->string('user_id');
-			$table->string('code');
-			$table->timestamp('registered_on');
+			$table->string('verification_code')->nullable();
+			$table->timestamp('registered_on')->nullable();
 
 			$table->index('user_id');
 

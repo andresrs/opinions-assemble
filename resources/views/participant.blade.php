@@ -6,7 +6,7 @@
 		<div class="panel-body">
 	<!-- Display Validation Errors -->
 	@include('common.errors')
-			<form action="{{ url('participant') }}" method="POST" class="form-horizontal">
+			<form action="{{ url('participant/store') }}" method="POST" class="form-horizontal">
 				{{ csrf_field() }}
 				<fieldset>
 					<div class="form-group">
