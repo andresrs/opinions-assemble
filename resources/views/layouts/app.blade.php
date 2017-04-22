@@ -10,6 +10,7 @@
         <!-- Place favicon.ico in the root directory -->
 
         <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/font-awesome/css/font-awesome.min.css') }}">
         <style>
             body {
                 padding-top: 50px;
