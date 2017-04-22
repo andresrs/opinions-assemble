@@ -25,7 +25,7 @@ class CreateParticipantRequest extends FormRequest
         return [
 			'name' => 'required|max:255',
 			'email' => 'required|email',
-			'user_id' => 'required|max:15',
+			'user_id' => ['required', 'min:5', 'max:15'],
         ];
     }
 }
