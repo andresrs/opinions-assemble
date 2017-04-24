@@ -14,7 +14,7 @@ class CreateMotionsTable extends Migration
     public function up()
     {
         Schema::create('motions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
 			$table->text('proposal');
 			$table->timestamp('available_until');
             $table->timestamps();
