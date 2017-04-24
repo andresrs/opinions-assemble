@@ -16,9 +16,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="active">
+					<tr>
 						<td><b>Voted</b></td>
-						<td>{{ $motion->available_until }}</td>
+						<td> ?? </td>
+					</tr>
+					<tr>
+						<td><b>Registered Participants</b></td>
+						<td>{{ $participants_registered }}</td>
+					</tr>
+					<tr>
+						<td><b>Valid Participants</b></td>
+						<td>{{ $participants_total }}</td>
 					</tr>
 				</tbody>
 			</table>

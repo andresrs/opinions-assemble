@@ -16,4 +16,8 @@ class Participant extends Model {
 	protected $dates = [
 		'registered_on',
 	];
+
+	public function scopeRegistered($query) {
+		return $query->whereNotNull('registered_on');
+	}
 }

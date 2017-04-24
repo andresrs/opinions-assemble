@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests\VerifyMotionRequest;
 use App\Motion;
+use App\Participant;
 
 class MotionController extends Controller
 {
@@ -32,8 +33,14 @@ class MotionController extends Controller
 		$motions = Motion::active()->get();
 
 		//TODO: Handle when there is no active motion
+
+		$participants_total = Participant::count();
+		$participants_registered = Participant::registered()->count();
+
 		return view('motion.active', [
 			'motion' => $motions[0],
+			'participants_total' => $participants_total,
+			'participants_registered' => $participants_registered,
 		]);
 	}
 }
