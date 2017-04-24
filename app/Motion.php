@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Motion extends Model
 {
@@ -14,4 +15,8 @@ class Motion extends Model
 	protected $dates = [
 		'available_until',
 	];
+
+	public function scopeActive($query) {
+		return $query->where('available_until', ">", Carbon::now());
+	}
 }

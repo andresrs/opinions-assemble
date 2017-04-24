@@ -10,6 +10,12 @@ use App\Motion;
 class MotionController extends Controller
 {
     public function create() {
+		$motions = Motion::active()->get();
+
+		if(count($motions) > 0) {
+			return redirect('/motion/active');
+		}
+
 		return view('motion.create');
 	}
 
@@ -19,9 +25,15 @@ class MotionController extends Controller
 			'available_until' => Carbon::now()->addMinutes(20),
 		]);
 
-		//return redirect('/motion/active');
+		return redirect('/motion/active');
+	}
+
+	public function active() {
+		$motions = Motion::active()->get();
+
+		//TODO: Handle when there is no active motion
 		return view('motion.active', [
-			'motion' => $motion,
+			'motion' => $motions[0],
 		]);
 	}
 }

@@ -28,4 +28,7 @@ Route::get('/participant/verify', 'ParticipantController@verifyShow');
 Route::post('/participant/verify', 'ParticipantController@verify');
 
 Route::get('/motion/create', 'MotionController@create');
+Route::get('/motion/active', 'MotionController@active');
 Route::post('/motion/store', 'MotionController@store');
+
+Route::get('/vote', 'VoteController@show');
