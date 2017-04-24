@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateParticipantRequest;
 use App\Http\Requests\VerifyParticipantRequest;
 use App\Participant;
+use Carbon\Carbon;
 
 class ParticipantController extends Controller {
 	public function index() {
@@ -49,6 +50,9 @@ class ParticipantController extends Controller {
 
 		$participant = Participant::where('user_id', $request->user_id)->first();
 		if($participant) {
+			$participant->registered_on = Carbon::now();
+			$participant->save();
+
 			$view_params['participant'] = $participant;
 		}
 

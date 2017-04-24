@@ -47,7 +47,7 @@
 								{{ $participant->email }}
 							</td>
 							<td class="table-text">
-								{{ $participant->code }}
+								{{ $participant->verification_code }}
 							</td>
 						</tr>
 					</tbody>
