@@ -9,11 +9,11 @@ use Carbon\Carbon;
 
 class ParticipantController extends Controller {
 	public function index() {
-		return view('participant_verify');
+		return view('participant.verify');
 	}
 
     public function create() {
-	    return view('participant');
+	    return view('participant.create');
 	}
 
 	public function store(CreateParticipantRequest $request) {
@@ -42,7 +42,7 @@ class ParticipantController extends Controller {
 	}
 
 	public function verifyShow() {
-		return view('participant_verify');
+		return view('participant.verify');
 	}
 
 	public function verify(VerifyParticipantRequest $request) {
@@ -56,6 +56,6 @@ class ParticipantController extends Controller {
 			$view_params['participant'] = $participant;
 		}
 
-		return view('participant_verify', $view_params);
+		return view('participant.verify', $view_params);
 	}
 }
