@@ -21,10 +21,10 @@
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-9 btn-group colors" data-toggle="buttons">
 							<label class="btn btn-success col-sm-2">
-								<input type="radio" name="answer" value="1" autocomplete="off"> Yes
+								<input type="radio" name="answer" value="1" autocomplete="off" required> Yes
 							</label>
 							<label class="btn btn-danger col-sm-2">
-								<input type="radio" name="answer" value="0" autocomplete="off"> No
+								<input type="radio" name="answer" value="0" autocomplete="off" required> No
 							</label>
 						</div>
 					</div>
