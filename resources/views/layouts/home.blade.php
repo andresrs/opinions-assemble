@@ -3,8 +3,10 @@
 	@include( 'partials.head' )
     <body>
 	@include( 'partials.nav' )
+	@include( 'partials.jumbotron' )
 	<br>
     <div class="container">
+      <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-12">
 			<div class="panel panel-primary">
@@ -14,7 +16,7 @@
       </div>
 
 	@include( 'partials.footer' )
-    </div>
+    </div> <!-- /container -->
 
 	@include( 'partials.end' )
     </body>
