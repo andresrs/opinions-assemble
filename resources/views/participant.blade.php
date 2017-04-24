@@ -6,34 +6,30 @@
 		<div class="panel-body">
 	<!-- Display Validation Errors -->
 	@include('common.errors')
-			<form action="{{ url('participant/store') }}" method="POST" class="form-horizontal">
+			<form action="{{ url('participant/store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<fieldset>
 					<div class="form-group">
-						<label for="name" class="col-sm-3 control-label">Name</label>
-
-						<div class="col-sm-9">
-							<input type="text" name="name" id="participant-name" class="form-control">
-						</div>
+						<p class='col-sm-offset-2 col-sm-10'>
+							The file with the participants authorized to participate must be a comma-separated values (CSV)
+							file with the following columns:
+						</p><br>
 					</div>
 					<div class="form-group">
-						<label for="email" class="col-sm-3 control-label">E-mail</label>
-
-						<div class="col-sm-9">
-							<input type="text" name="email" id="participant-email" class="form-control">
-						</div>
+						<ol class="list-group col-sm-offset-3 col-sm-6">
+							<li class="list-group-item">Name</li>
+							<li class="list-group-item">ID to be used to validate the participant</li>
+							<li class="list-group-item">E-mail of the participant</li>
+						</ol>
 					</div>
 					<div class="form-group">
-						<label for="user_id" class="col-sm-3 control-label">User ID</label>
-
-						<div class="col-sm-9">
-							<input type="text" name="user_id" id="participant-userid" class="form-control">
-						</div>
+						<label class='col-sm-3' for="participants_file">Select file:</label>
+						<input id="participants_file" name="participants_file" type="file">
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-9">
 							<button type="submit" class="btn btn-default">
-								Add Participant <i class="fa fa-plus"></i>
+								Add Participants <i class="fa fa-plus"></i>
 							</button>
 						</div>
 					</fieldset>

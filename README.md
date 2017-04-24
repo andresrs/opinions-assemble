@@ -24,6 +24,10 @@ OS X & Linux:
 		```
 
 1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1
+1. Head to http://yourserver.tld/participant/create and upload a CSV file containing the following columns:
+	1. Name
+	2. ID that will be used to identify the participants
+	3. E-mail that the participants may receive messages
 
 ## Usage example
 

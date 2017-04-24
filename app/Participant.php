@@ -9,6 +9,7 @@ class Participant extends Model {
 		'name',
 		'email',
 		'user_id',
+		'verification_code',
 		'registered_on',
 	];
 

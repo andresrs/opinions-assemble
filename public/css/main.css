@@ -95,21 +95,13 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+ol.list-group {
+    list-style: decimal inside;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ol li.list-group-item {
+    display: list-item;
+}
 
 /* ==========================================================================
    Helper classes
