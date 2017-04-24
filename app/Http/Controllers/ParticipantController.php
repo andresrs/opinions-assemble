@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\CreateParticipantRequest;
 use App\Http\Requests\VerifyParticipantRequest;
 use App\Participant;

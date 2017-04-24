@@ -1,4 +1,4 @@
-@if (count($errors) > 0)
+@if ($errors->any())
     <!-- Form Error List -->
     <div class="alert alert-danger">
         <strong>Whoops! Something went wrong!</strong>
