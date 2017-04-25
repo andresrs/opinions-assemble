@@ -13,7 +13,7 @@
 						<label for="proposal" class="col-sm-3 control-label">Motion</label>
 
 						<div class="col-sm-9">
-							<textarea rows='5' id='proposal' name='proposal' class="form-control" required></textarea>
+							<textarea rows='5' id='proposal' name='proposal' class="form-control" required>{{ old('proposal') }}</textarea>
 						</div>
 					</div>
 					<div class="form-group">

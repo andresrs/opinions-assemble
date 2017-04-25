@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Participant;
 
-class VerifyParticipantRequest extends FormRequest
+class LogInMainRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +24,7 @@ class VerifyParticipantRequest extends FormRequest
     public function rules()
     {
         return [
-			'user_id' => ['required', 'min:5', 'max:15'],
+            //
         ];
     }
 }

@@ -14,9 +14,9 @@
 use App\Participant;
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@index');
+Route::get('/main', 'MainController@main');
+Route::post('/main/login', 'MainController@login');
 
 Route::get('/participant', 'ParticipantController@index');
 

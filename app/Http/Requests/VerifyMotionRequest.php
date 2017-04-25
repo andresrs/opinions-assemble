@@ -24,7 +24,7 @@ class VerifyMotionRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'proposal' => 'required',
         ];
     }
 }

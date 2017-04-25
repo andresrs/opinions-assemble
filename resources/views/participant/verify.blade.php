@@ -14,7 +14,7 @@
 				<label for="user_id" class="col-sm-3 control-label">User ID</label>
 
 				<div class="col-sm-9">
-					<input type="text" name="user_id" id="participant-userid" class="form-control">
+					<input type="text" name="user_id" id="participant-userid" class="form-control" value="{{ old('user_id') }}">
 				</div>
 			</div>
 

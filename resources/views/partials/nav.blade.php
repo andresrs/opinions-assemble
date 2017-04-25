@@ -12,18 +12,19 @@
 	  </button>
 	  <a class="navbar-brand" href="#">Opinions Assemble</a>
 	</div>
-	<!--
-	<div id="navbar" class="navbar-collapse collapse">
-	  <form class="navbar-form navbar-right" role="form">
-		<div class="form-group">
-		  <input type="text" placeholder="Email" class="form-control">
+	@if ( !session()->has('hide_log_in') )
+		<div id="navbar" class="navbar-collapse collapse">
+		  <form action="{{ url('main/login') }}" class="navbar-form navbar-right" role="form" method="POST">
+			{{ csrf_field() }}
+			<div class="form-group">
+			  <input name='user_id' type="text" placeholder="User ID" class="form-control">
+			</div>
+			<div class="form-group">
+			  <input name='verification_code' type="password" placeholder="Code" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-success">Sign in</button>
+		  </form>
 		</div>
-		<div class="form-group">
-		  <input type="password" placeholder="Password" class="form-control">
-		</div>
-		<button type="submit" class="btn btn-success">Sign in</button>
-	  </form>
-	</div>
-	--><!--/.navbar-collapse -->
+	@endif
   </div>
 </nav>

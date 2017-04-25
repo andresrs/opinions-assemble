@@ -20,4 +20,8 @@ class Participant extends Model {
 	public function scopeRegistered($query) {
 		return $query->whereNotNull('registered_on');
 	}
+
+	public function scopeVerify($query, $user_id, $verification_code){
+		return $query->where('user_id', '=', $user_id)->where('verification_code', '=', $verification_code);
+	}
 }

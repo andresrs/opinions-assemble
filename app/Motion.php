@@ -19,4 +19,8 @@ class Motion extends Model
 	public function scopeActive($query) {
 		return $query->where('available_until', ">", Carbon::now());
 	}
+
+	public function votes() {
+		return $this->hasMany(SubmittedVote::class);
+	}
 }
