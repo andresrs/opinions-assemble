@@ -10,4 +10,6 @@ class SubmittedVote extends Model
 		'motion_id',
 		'vote_id',
 	];
+
+	public $timestamps = false;
 }

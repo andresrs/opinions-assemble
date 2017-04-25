@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LogInMainRequest;
 use App\Participant;
-use App\Motion;
 
 class MainController extends Controller
 {
@@ -22,14 +21,6 @@ class MainController extends Controller
 		session()->put("user_id", $request->user_id);
 		$participant = $participants[0];
 		session()->put('hide_log_in', 1);
-		return redirect('/main');
-	}
-
-	public function main() {
-		$motion = Motion::active()->first();
-
-		return view('main.index', [
-			'motion' => $motion,
-		]);
+		return redirect('/vote');
 	}
 }

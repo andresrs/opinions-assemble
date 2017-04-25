@@ -30,15 +30,15 @@ class MotionController extends Controller
 	}
 
 	public function active() {
-		$motions = Motion::active()->get();
-
+		$motion = Motion::active()->first();
 		//TODO: Handle when there is no active motion
 
 		$participants_total = Participant::count();
 		$participants_registered = Participant::registered()->count();
 
 		return view('motion.active', [
-			'motion' => $motions[0],
+			'motion' => $motion,
+			'votes' => $motion->votes->count(),
 			'participants_total' => $participants_total,
 			'participants_registered' => $participants_registered,
 		]);

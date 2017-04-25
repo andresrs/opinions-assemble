@@ -18,7 +18,7 @@
 				<tbody>
 					<tr>
 						<td><b>Voted</b></td>
-						<td> ?? </td>
+						<td> {{ $votes }} </td>
 					</tr>
 					<tr>
 						<td><b>Registered Participants</b></td>

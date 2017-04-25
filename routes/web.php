@@ -32,3 +32,5 @@ Route::get('/motion/active', 'MotionController@active');
 Route::post('/motion/store', 'MotionController@store');
 
 Route::get('/vote', 'VoteController@show');
+Route::post('/vote/store', 'VoteController@store');
+Route::get('/vote/wait', 'VoteController@wait');
