@@ -11,12 +11,14 @@ class VoteController extends Controller
 {
     public function show() {
 		$motion = Motion::active()->first();
+		$all_motions = Motion::all();
 
 		if(is_null($motion)) {
 			return redirect('/vote/wait');
 		}
 		return view('motion.vote', [
 			'motion' => $motion,
+			'all_motions' => $all_motions,
 		]);
 	}
 

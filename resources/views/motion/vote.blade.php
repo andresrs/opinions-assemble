@@ -1,8 +1,6 @@
 @extends('layouts.twocol')
 
-@section('left')
-	Hello World!!
-@endsection
+@include('partials.resultssum')
 
 @section('content')
 	<div class="panel-heading">Motion for Assembly Consideration</div>
