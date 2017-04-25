@@ -25,6 +25,7 @@ class VerifyMotionRequest extends FormRequest
     {
         return [
             'proposal' => 'required',
+            'proposal_short' => 'required|max:100',
         ];
     }
 }

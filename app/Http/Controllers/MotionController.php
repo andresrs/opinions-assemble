@@ -23,6 +23,7 @@ class MotionController extends Controller
 	public function store(VerifyMotionRequest $request) {
 		$motion = Motion::create([
 			'proposal' => $request->proposal,
+			'proposal_short' => $request->proposal_short,
 			'available_until' => Carbon::now()->addMinutes(20),
 		]);
 
@@ -31,6 +32,7 @@ class MotionController extends Controller
 
 	public function active() {
 		$motion = Motion::active()->first();
+		$all_motions = Motion::all();
 		//TODO: Handle when there is no active motion
 
 		$participants_total = Participant::count();
@@ -38,6 +40,7 @@ class MotionController extends Controller
 
 		return view('motion.active', [
 			'motion' => $motion,
+			'all_motions' => $all_motions,
 			'votes' => $motion->votes->count(),
 			'participants_total' => $participants_total,
 			'participants_registered' => $participants_registered,

@@ -10,6 +10,14 @@
 				{{ csrf_field() }}
 				<fieldset>
 					<div class="form-group">
+						<label for="proposal_short" class="col-sm-3 control-label">Short Summary of Motion</label>
+
+						<div class="col-sm-9">
+							<input type="text" id='proposal_short' name='proposal_short' class="form-control" required value='{{ old('proposal_short') }}'>
+						</div>
+					</div>
+
+					<div class="form-group">
 						<label for="proposal" class="col-sm-3 control-label">Motion</label>
 
 						<div class="col-sm-9">

@@ -9,6 +9,7 @@ class Motion extends Model
 {
     protected $fillable = [
 		'proposal',
+		'proposal_short',
 		'available_until',
 	];
 
