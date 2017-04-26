@@ -18,7 +18,7 @@ class MotionController extends Controller
 		}
 
 		return view('motion.create', [
-			'all_motions' => Motion::all(),
+			'all_motions' => Motion::latest()->get(),
 		]);
 	}
 
@@ -44,7 +44,7 @@ class MotionController extends Controller
 
 		return view('motion.active', [
 			'motion' => $motion,
-			'all_motions' => Motion::all(),
+			'all_motions' => Motion::latest()->get(),
 			'votes' => $motion->votes->count(),
 			'participants_total' => $participants_total,
 			'participants_registered' => $participants_registered,

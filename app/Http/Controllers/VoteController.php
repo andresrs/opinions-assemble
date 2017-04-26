@@ -10,6 +10,10 @@ use App\RegisteredVote;
 class VoteController extends Controller
 {
     public function show() {
+		if(!session()->has('user_id')) {
+			return redirect('/');
+		}
+
 		$motion = Motion::active()->first();
 
 		if(is_null($motion)) {
@@ -17,11 +21,15 @@ class VoteController extends Controller
 		}
 		return view('motion.vote', [
 			'motion' => $motion,
-			'all_motions' => Motion::all(),
+			'all_motions' => Motion::latest()->get(),
 		]);
 	}
 
 	public function store(Request $request) {
+		if(!session()->has('user_id')) {
+			return redirect('/');
+		}
+
 		SubmittedVote::create([
 			'motion_id' => $request->motion_id,
 			'vote_id' => $request->answer
@@ -37,6 +45,10 @@ class VoteController extends Controller
 	}
 
 	public function wait() {
+		if(!session()->has('user_id')) {
+			return redirect('/');
+		}
+
 		$motion = Motion::active()->first();
 		if(!is_null($motion)) {
 			return redirect('/vote');
@@ -44,7 +56,7 @@ class VoteController extends Controller
 
 		return view('motion.wait', [
 			"message" => "Waiting for a motion to be available.",
-			'all_motions' => Motion::all(),
+			'all_motions' => Motion::latest()->get(),
 		]);
 	}
 }
