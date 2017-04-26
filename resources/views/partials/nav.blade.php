@@ -25,6 +25,13 @@
 			<button type="submit" class="btn btn-success">Sign in</button>
 		  </form>
 		</div>
+	@else
+		<div id="navbar" class="navbar-collapse collapse">
+		  <form action="{{ url('main/logout') }}" class="navbar-form navbar-right" role="form" method="POST">
+			{{ csrf_field() }}
+			<button type="submit" class="btn btn-success">Sign out</button>
+		  </form>
+		</div>
 	@endif
   </div>
 </nav>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LogInMainRequest;
 use App\Participant;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -22,5 +23,11 @@ class MainController extends Controller
 		$participant = $participants[0];
 		session()->put('hide_log_in', 1);
 		return redirect('/vote');
+	}
+
+	public function logout(Request $request) {
+		session()->pull("user_id");
+		session()->pull("hide_log_in");
+		return redirect('/');
 	}
 }
