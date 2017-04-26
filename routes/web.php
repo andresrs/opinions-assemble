@@ -33,3 +33,7 @@ Route::post('/motion/store', 'MotionController@store');
 Route::get('/vote', 'VoteController@show');
 Route::post('/vote/store', 'VoteController@store');
 Route::get('/vote/wait', 'VoteController@wait');
+
+Route::get('/admin', 'AdminController@show');
+Route::get('/admin/register', 'AdminController@register');
+Route::post('/admin/verify', 'AdminController@verify');
