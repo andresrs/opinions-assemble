@@ -24,4 +24,8 @@ class Motion extends Model
 	public function votes() {
 		return $this->hasMany(SubmittedVote::class);
 	}
+
+	public function registered() {
+		return $this->hasMany(RegisteredVote::class);
+	}
 }

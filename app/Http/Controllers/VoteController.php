@@ -16,9 +16,10 @@ class VoteController extends Controller
 
 		$motion = Motion::active()->first();
 
-		if(is_null($motion)) {
+		if(is_null($motion) or $motion->registered->where('user_id', '=', session('user_id') )->count() ) {
 			return redirect('/vote/wait');
 		}
+
 		return view('motion.vote', [
 			'motion' => $motion,
 			'all_motions' => Motion::latest()->get(),
@@ -50,7 +51,8 @@ class VoteController extends Controller
 		}
 
 		$motion = Motion::active()->first();
-		if(!is_null($motion)) {
+
+		if(!(is_null($motion) or $motion->registered->where('user_id', '=', session('user_id') )->count() ) ){
 			return redirect('/vote');
 		}
 

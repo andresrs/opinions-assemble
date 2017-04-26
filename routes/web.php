@@ -20,9 +20,7 @@ Route::post('/main/login', 'MainController@login');
 Route::post('/main/logout', 'MainController@logout');
 
 Route::get('/participant', 'ParticipantController@index');
-
 Route::get('/participant/create', 'ParticipantController@create');
-
 Route::post('/participant/store', 'ParticipantController@store');
 
 Route::get('/participant/verify', 'ParticipantController@verifyShow');
