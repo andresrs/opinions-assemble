@@ -11,14 +11,13 @@ class VoteController extends Controller
 {
     public function show() {
 		$motion = Motion::active()->first();
-		$all_motions = Motion::all();
 
 		if(is_null($motion)) {
 			return redirect('/vote/wait');
 		}
 		return view('motion.vote', [
 			'motion' => $motion,
-			'all_motions' => $all_motions,
+			'all_motions' => Motion::all(),
 		]);
 	}
 
@@ -37,5 +36,10 @@ class VoteController extends Controller
 		return redirect('/vote/wait');
 	}
 
-	public function wait() {}
+	public function wait() {
+		return view('motion.wait', [
+			"message" => "Waiting for a motion to be available.",
+			'all_motions' => Motion::all(),
+		]);
+	}
 }
