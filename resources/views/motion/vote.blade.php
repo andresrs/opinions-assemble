@@ -41,9 +41,9 @@
 								Vote
 							</button>
 						</div>
-					</fieldset>
-				</form>
-			</div>
+					</div>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 @endsection

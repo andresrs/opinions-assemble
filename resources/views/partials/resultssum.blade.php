@@ -1,4 +1,6 @@
 @section('left')
+	@parent
+
 	@if ( isset($all_motions) )
 		<div class="list-group list-group-root well">
 		@foreach ($all_motions as $m)

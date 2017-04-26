@@ -2,6 +2,8 @@
 
 @include('partials.resultssum')
 
+@include('partials.navadmin')
+
 @section('content')
 	<div class="panel-heading">Active Motion</div>
 	<div class="panel-body">

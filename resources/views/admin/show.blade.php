@@ -1,5 +1,9 @@
 @extends('layouts.twocol')
 
+@include('partials.resultssum')
+
+@include('partials.navadmin')
+
 @section('content')
 	<div class="panel-heading">Administration Screen</div>
 	<div class="panel-body">

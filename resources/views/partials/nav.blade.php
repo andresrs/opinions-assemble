@@ -10,8 +10,11 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="#">Opinions Assemble</a>
+	  <a class="navbar-brand" href="{{ url('/') }}">Opinions Assemble</a>
 	</div>
+	<ul class="nav navbar-nav">
+		@yield('nav-menu')
+	</ul>
 	@if ( !session()->has('hide_log_in') )
 		<div id="navbar" class="navbar-collapse collapse">
 		  <form action="{{ url('main/login') }}" class="navbar-form navbar-right" role="form" method="POST">
@@ -27,7 +30,7 @@
 		</div>
 	@else
 		<div id="navbar" class="navbar-collapse collapse">
-		  <form action="{{ url('main/logout') }}" class="navbar-form navbar-right" role="form" method="POST">
+		  <form action="{{ url('/main/logout') }}" class="navbar-form navbar-right" role="form" method="POST">
 			{{ csrf_field() }}
 			<button type="submit" class="btn btn-success">Sign out</button>
 		  </form>

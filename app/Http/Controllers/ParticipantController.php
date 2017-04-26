@@ -8,10 +8,6 @@ use App\Participant;
 use Carbon\Carbon;
 
 class ParticipantController extends Controller {
-	public function index() {
-		return view('participant.verify');
-	}
-
     public function create() {
 	    return view('participant.create');
 	}
@@ -38,24 +34,6 @@ class ParticipantController extends Controller {
 			]);
 		}
 
-		return redirect('/participant');
-	}
-
-	public function verifyShow() {
-		return view('participant.verify');
-	}
-
-	public function verify(VerifyParticipantRequest $request) {
-		$view_params = ['search_id' => $request->user_id,];
-
-		$participant = Participant::where('user_id', $request->user_id)->first();
-		if($participant) {
-			$participant->registered_on = Carbon::now();
-			$participant->save();
-
-			$view_params['participant'] = $participant;
-		}
-
-		return view('participant.verify', $view_params);
+		return redirect('/admin');
 	}
 }
