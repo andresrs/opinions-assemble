@@ -17,7 +17,9 @@ class MotionController extends Controller
 			return redirect('/motion/active');
 		}
 
-		return view('motion.create');
+		return view('motion.create', [
+			'all_motions' => Motion::all(),
+		]);
 	}
 
 	public function store(VerifyMotionRequest $request) {
@@ -32,15 +34,17 @@ class MotionController extends Controller
 
 	public function active() {
 		$motion = Motion::active()->first();
-		$all_motions = Motion::all();
-		//TODO: Handle when there is no active motion
+
+		if(!$motion) {
+			return redirect('/motion/create');
+		}
 
 		$participants_total = Participant::count();
 		$participants_registered = Participant::registered()->count();
 
 		return view('motion.active', [
 			'motion' => $motion,
-			'all_motions' => $all_motions,
+			'all_motions' => Motion::all(),
 			'votes' => $motion->votes->count(),
 			'participants_total' => $participants_total,
 			'participants_registered' => $participants_registered,

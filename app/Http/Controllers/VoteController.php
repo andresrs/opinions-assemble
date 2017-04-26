@@ -37,6 +37,11 @@ class VoteController extends Controller
 	}
 
 	public function wait() {
+		$motion = Motion::active()->first();
+		if(!is_null($motion)) {
+			return redirect('/vote');
+		}
+
 		return view('motion.wait', [
 			"message" => "Waiting for a motion to be available.",
 			'all_motions' => Motion::all(),

@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.twocol')
+
+@include('partials.resultssum')
 
 @section('content')
 	<div class="panel-heading">Active Motion</div>
@@ -9,10 +11,10 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th colspan='2'>
-							{{ $motion->proposal }}<br><br>
-							<small>{{ $motion->available_until->diffForHumans() }}</small>
-						</th>
+						<td colspan='2'>
+							<b>{{ $motion->proposal }}</b><hr>
+							<small>Available for {{ $motion->available_until->diffForHumans(null, true) }} more.</small>
+						</td>
 					</tr>
 				</thead>
 				<tbody>
