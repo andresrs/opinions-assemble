@@ -31,6 +31,11 @@ class CreateParticipantsJob implements ShouldQueue
      */
     public function handle()
     {
+		if(!Storage::exists('participants.csv')) {
+			//TODO: Decide what to do here.
+			return;
+		}
+
         $participantsFile = new \SplFileObject(storage_path('app/participants.csv'));
 		$participantsFile->setFlags(\SplFileObject::READ_CSV);
 
