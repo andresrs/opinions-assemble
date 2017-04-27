@@ -19,7 +19,6 @@ Route::get('/main', 'MainController@main');
 Route::post('/main/login', 'MainController@login');
 Route::post('/main/logout', 'MainController@logout');
 
-Route::get('/participant/create', 'ParticipantController@create');
 Route::post('/participant/store', 'ParticipantController@store');
 
 Route::get('/vote', 'VoteController@show');
@@ -32,3 +31,5 @@ Route::post('/admin/verify', 'AdminController@verify');
 Route::get('/admin/motion', 'AdminController@motionCreate');
 Route::get('/admin/motion/active', 'AdminController@motionActive');
 Route::post('/admin/motion/store', 'AdminController@motionStore');
+Route::get('/admin/participant', 'AdminController@participantCreate');
+Route::post('/admin/participant/store', 'AdminController@participantStore');

@@ -6,7 +6,7 @@
 		<div class="panel-body">
 	<!-- Display Validation Errors -->
 	@include('common.errors')
-			<form action="{{ url('participant/store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+			<form action="{{ url('/admin/participant/store') }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<fieldset>
 					<div class="form-group">
@@ -24,7 +24,7 @@
 					</div>
 					<div class="form-group">
 						<label class='col-sm-3' for="participants_file">Select file:</label>
-						<input id="participants_file" name="participants_file" type="file">
+						<input id="participants_file" name="participants_file" type="file" required>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-3 col-sm-9">

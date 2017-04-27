@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function show() {
+		if(Participant::all()->count() == 0) {
+			return redirect('/admin/participants');
+		}
+
 		return view('admin.show', [
 			'all_motions' => Motion::latest()->get(),
 		]);
@@ -82,4 +86,32 @@ class AdminController extends Controller
 		]);
 	}
 
+    public function participantCreate() {
+	    return view('participant.create');
+	}
+
+	public function participantStore(CreateParticipantRequest $request) {
+		if (!$request->file('participants_file')->isValid()) {
+			//TODO: Fill here
+		}
+
+		$participantsFile = $request->file('participants_file')->openFile();
+		$participantsFile->setFlags(\SplFileObject::READ_CSV);
+
+		foreach($participantsFile as $participantData) {
+			if(count($participantData) != 3) {
+				continue;
+			}
+
+			Participant::create([
+				'name'    => $participantData[0],
+				'user_id' => $participantData[1],
+				'email'   => $participantData[2],
+				'verification_code' => random_int(100000, 999999),
+				'registered_on' => null,
+			]);
+		}
+
+		return redirect('/admin');
+	}
 }
