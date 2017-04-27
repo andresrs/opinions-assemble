@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateParticipantRequest;
 use App\Http\Requests\VerifyParticipantRequest;
 use App\Http\Requests\VerifyMotionRequest;
+use App\Jobs\CreateParticipantsJob;
 use App\Participant;
 use App\Motion;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function show() {
-		if(Participant::all()->count() == 0) {
-			return redirect('/admin/participants');
+		if((Participant::all()->count() == 0) and !session()->has('job_queued')) {
+			return redirect('/admin/participant');
 		}
 
 		return view('admin.show', [
@@ -96,21 +98,10 @@ class AdminController extends Controller
 		}
 
 		$participantsFile = $request->file('participants_file')->openFile();
-		$participantsFile->setFlags(\SplFileObject::READ_CSV);
+		$request->file('participants_file')->storeAs('', 'participants.csv');
 
-		foreach($participantsFile as $participantData) {
-			if(count($participantData) != 3) {
-				continue;
-			}
-
-			Participant::create([
-				'name'    => $participantData[0],
-				'user_id' => $participantData[1],
-				'email'   => $participantData[2],
-				'verification_code' => random_int(100000, 999999),
-				'registered_on' => null,
-			]);
-		}
+		session()->flash('job_queued', 'Uploading users. Wait several minutes to continue.');
+		$this->dispatch(new CreateParticipantsJob());
 
 		return redirect('/admin');
 	}
