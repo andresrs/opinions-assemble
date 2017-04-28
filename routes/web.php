@@ -26,10 +26,15 @@ Route::post('/vote/store', 'VoteController@store');
 Route::get('/vote/wait', 'VoteController@wait');
 
 Route::get('/admin', 'AdminController@show');
+
 Route::get('/admin/register', 'AdminController@register');
 Route::post('/admin/verify', 'AdminController@verify');
+
 Route::get('/admin/motion', 'AdminController@motionCreate');
 Route::get('/admin/motion/active', 'AdminController@motionActive');
 Route::post('/admin/motion/store', 'AdminController@motionStore');
+
 Route::get('/admin/participant', 'AdminController@participantCreate');
 Route::post('/admin/participant/store', 'AdminController@participantStore');
+
+Route::get('/admin/generate', 'AdminController@generate');
