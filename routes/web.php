@@ -19,8 +19,6 @@ Route::get('/main', 'MainController@main');
 Route::post('/main/login', 'MainController@login');
 Route::post('/main/logout', 'MainController@logout');
 
-Route::post('/participant/store', 'ParticipantController@store');
-
 Route::get('/vote', 'VoteController@show');
 Route::post('/vote/store', 'VoteController@store');
 Route::get('/vote/wait', 'VoteController@wait');
