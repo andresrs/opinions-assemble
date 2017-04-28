@@ -47,7 +47,7 @@ class GenerateFiles implements ShouldQueue
 		foreach($participants as $p) {
 			$date = '-';
 			if(!is_null($p->registered_on)) {
-				$date = $p->registered_on->toFormattedDateString();
+				$date = $p->registered_on->format('M j Y h:i A');
 			}
 			fputcsv($participantsFile, [$p->name, $date]);
 		}
