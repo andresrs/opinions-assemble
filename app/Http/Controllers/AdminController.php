@@ -12,6 +12,7 @@ use App\Motion;
 use Carbon\Carbon;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use ZipArchive;
 
@@ -29,15 +30,14 @@ class AdminController extends Controller
 			$view = 'admin.ending';
 		}
 
-		if(Storage::exists('output.zip')) {
-		}
-
-		if(!is_null($motion)) {
-			$view = 'admin.show';
+		$file_ready = false;
+		if(Storage::exists('final_statistics.zip')) {
+			$file_ready = true;
 		}
 
 		return view($view, [
 			'all_motions' => Motion::latest()->get(),
+			'file_ready' => $file_ready,
 		]);
 	}
 
@@ -128,5 +128,31 @@ class AdminController extends Controller
 		$this->dispatch(new GenerateFiles());
 
 		return redirect('/admin');
+	}
+
+	public function download() {
+		$finalFile = Storage::get('final_statistics.zip');
+
+		header('Content-Description: File Transfer');
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename=final_statistics.zip');
+		header('Content-Transfer-Encoding: binary');
+		header('Connection: Keep-Alive');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Pragma: public');
+		header('Content-Length: ' . strlen($finalFile));
+
+		print $finalFile;
+		exit;
+	}
+
+	public function resetData() {
+		DB::table('motions')->truncate();
+		DB::table('participants')->truncate();
+		DB::table('registered_votes')->truncate();
+		DB::table('submitted_votes')->truncate();
+
+		return redirect('/admin/participant');
 	}
 }
