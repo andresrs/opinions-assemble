@@ -62,6 +62,9 @@ class AdminController extends Controller
 	}
 
 	public function resetData() {
+		// Clearing user id in case it's in use
+		session()->pull("user_id");
+
 		DB::table('motions')->truncate();
 		DB::table('participants')->truncate();
 		DB::table('registered_votes')->truncate();
