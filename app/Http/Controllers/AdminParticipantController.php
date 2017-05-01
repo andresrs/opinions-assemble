@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateParticipantRequest;
 use App\Http\Requests\VerifyParticipantRequest;
 use App\Jobs\CreateParticipantsJob;
 use App\Motion;

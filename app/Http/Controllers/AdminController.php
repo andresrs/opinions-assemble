@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\GenerateFiles;
 use App\Motion;
+use App\Participant;
 use Carbon\Carbon;
 use Illuminate\Http\File;
 use Illuminate\Http\Request;
