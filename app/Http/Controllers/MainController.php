@@ -21,13 +21,11 @@ class MainController extends Controller
 
 		session()->put("user_id", $request->user_id);
 		$participant = $participants[0];
-		session()->put('hide_log_in', 1);
 		return redirect('/vote');
 	}
 
 	public function logout(Request $request) {
 		session()->pull("user_id");
-		session()->pull("hide_log_in");
 		return redirect('/');
 	}
 }

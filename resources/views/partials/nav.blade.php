@@ -15,7 +15,7 @@
 	<ul class="nav navbar-nav">
 		@yield('nav-menu')
 	</ul>
-	@if ( !session()->has('hide_log_in') )
+	@if ( !session()->has('user_id') )
 		<div id="navbar" class="navbar-collapse collapse">
 		  <form action="{{ url('main/login') }}" class="navbar-form navbar-right" role="form" method="POST">
 			{{ csrf_field() }}
