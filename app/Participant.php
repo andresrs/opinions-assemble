@@ -24,4 +24,8 @@ class Participant extends Model {
 	public function scopeVerify($query, $user_id, $verification_code){
 		return $query->where('user_id', '=', $user_id)->where('verification_code', '=', $verification_code);
 	}
+
+	public function scopeGetUser($query, $user_id) {
+		return $query->where('user_id', '=', $user_id);
+	}
 }

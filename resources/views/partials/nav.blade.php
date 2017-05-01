@@ -29,11 +29,11 @@
 		  </form>
 		</div>
 	@else
-		<div id="navbar" class="navbar-collapse collapse">
-		  <form action="{{ url('/main/logout') }}" class="navbar-form navbar-right" role="form" method="POST">
-			{{ csrf_field() }}
-			<button type="submit" class="btn btn-success">Sign out</button>
-		  </form>
+		<div id="navbar" class="navbar-collapse collapse navbar-right">
+			<ul class="nav navbar-nav">
+			<li><a>Welcome, {{ \App\Participant::getUser(session()->get('user_id'))->first()->name }}</a></li>
+			</ul>
+			<a href=" {{ url('/main/logout') }}" class="btn btn-danger" role="button">Sign out</a>
 		</div>
 	@endif
   </div>
