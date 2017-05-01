@@ -41,47 +41,6 @@ class AdminController extends Controller
 		]);
 	}
 
-	public function register() {
-		return view('participant.verify', [
-			'all_motions' => Motion::latest()->get(),
-		]);
-	}
-
-	public function verify(VerifyParticipantRequest $request) {
-		$view_params = [
-			'search_id' => $request->user_id,
-			'all_motions' => Motion::latest()->get(),
-		];
-
-		$participant = Participant::where('user_id', $request->user_id)->first();
-		if($participant) {
-			$participant->registered_on = Carbon::now();
-			$participant->save();
-
-			$view_params['participant'] = $participant;
-		}
-
-		return view('participant.verify', $view_params);
-	}
-
-    public function participantCreate() {
-	    return view('participant.create');
-	}
-
-	public function participantStore(CreateParticipantRequest $request) {
-		if (!$request->file('participants_file')->isValid()) {
-			//TODO: Fill here
-		}
-
-		$participantsFile = $request->file('participants_file')->openFile();
-		$request->file('participants_file')->storeAs('', 'participants.csv');
-
-		session()->flash('job_queued', 'Uploading users. Wait several minutes to continue.');
-		$this->dispatch(new CreateParticipantsJob());
-
-		return redirect('/admin');
-	}
-
 	public function generate() {
 		session()->flash('job_queued', 'Generating final files. Wait several minutes to continue.');
 		$this->dispatch(new GenerateFiles());
