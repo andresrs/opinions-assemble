@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 Route::get('/', 'MainController@index');
 Route::get('/main', 'MainController@main');
 Route::post('/main/login', 'MainController@login');
-Route::post('/main/logout', 'MainController@logout');
+Route::get('/main/logout', 'MainController@logout');
 
 Route::get('/vote', 'VoteController@show');
 Route::post('/vote/store', 'VoteController@store');
