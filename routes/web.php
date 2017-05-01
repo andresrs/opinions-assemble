@@ -38,3 +38,6 @@ Route::post('/admin/participant/store', 'AdminController@participantStore');
 Route::get('/admin/generate', 'AdminController@generate');
 Route::get('/admin/download', 'AdminController@download');
 Route::get('/admin/reset', 'AdminController@resetData');
+
+Route::get('/user/create', 'UserController@create');
+Route::post('/user/store', 'UserController@store');
