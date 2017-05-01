@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VerifyParticipantRequest;
+use App\Jobs\CreateParticipantsJob;
+use App\Motion;
+use App\Participant;
 use Illuminate\Http\Request;
 
 class AdminParticipantController extends Controller
@@ -10,7 +14,7 @@ class AdminParticipantController extends Controller
 	    return view('participant.create');
 	}
 
-	public function store() {
+	public function store(CreateParticipantRequest $request) {
 		if (!$request->file('participants_file')->isValid()) {
 			//TODO: Fill here
 		}

@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateParticipantRequest;
-use App\Http\Requests\VerifyParticipantRequest;
-use App\Http\Requests\VerifyMotionRequest;
-use App\Jobs\CreateParticipantsJob;
 use App\Jobs\GenerateFiles;
-use App\Participant;
 use App\Motion;
 use Carbon\Carbon;
 use Illuminate\Http\File;
