@@ -17,8 +17,9 @@ class CreateParticipantsTable extends Migration
             $table->bigIncrements('id');
 			$table->string('name');
 			$table->string('email');
-			$table->string('user_id');
+			$table->string('user_code');
 			$table->string('verification_code')->nullable();
+			$table->string('user_id')->nullable();
 			$table->timestamp('registered_on')->nullable();
 
 			$table->index('user_id');

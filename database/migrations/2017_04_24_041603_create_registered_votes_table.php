@@ -15,7 +15,7 @@ class CreateRegisteredVotesTable extends Migration
     {
         Schema::create('registered_votes', function (Blueprint $table) {
             $table->bigIncrements('id');
-			$table->string('user_id');
+			$table->string('user_code');
 			$table->bigInteger('motion_id');
 			$table->ipAddress('ip_from');
             $table->timestamps();

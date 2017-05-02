@@ -8,6 +8,7 @@ class Participant extends Model {
     protected $fillable = [
 		'name',
 		'email',
+		'user_code',
 		'user_id',
 		'verification_code',
 		'registered_on',
@@ -21,11 +22,11 @@ class Participant extends Model {
 		return $query->whereNotNull('registered_on');
 	}
 
-	public function scopeVerify($query, $user_id, $verification_code){
-		return $query->where('user_id', '=', $user_id)->where('verification_code', '=', $verification_code);
+	public function scopeVerify($query, $user_code, $verification_code){
+		return $query->where('user_code', '=', $user_code)->where('verification_code', '=', $verification_code);
 	}
 
-	public function scopeGetUser($query, $user_id) {
-		return $query->where('user_id', '=', $user_id);
+	public function scopeGetUser($query, $user_code) {
+		return $query->where('user_code', '=', $user_code);
 	}
 }

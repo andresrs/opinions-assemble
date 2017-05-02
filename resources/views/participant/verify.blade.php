@@ -15,10 +15,10 @@
 			@include('common.errors')
 
 			<div class="form-group">
-				<label for="user_id" class="col-sm-3 control-label">User ID</label>
+				<label for="user_code" class="col-sm-3 control-label">User ID</label>
 
 				<div class="col-sm-6">
-					<input type="text" name="user_id" id="participant-userid" class="form-control" value="{{ old('user_id') }}">
+					<input type="text" name="user_code" id="participant-userid" class="form-control" value="{{ old('user_code') }}">
 				</div>
 			</div>
 

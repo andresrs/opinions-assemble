@@ -25,7 +25,7 @@ class VerifyParticipantRequest extends FormRequest
     public function rules()
     {
         return [
-			'user_id' => ['required', 'min:5', 'max:15'],
+			'user_code' => ['required', 'min:5', 'max:15'],
         ];
     }
 }

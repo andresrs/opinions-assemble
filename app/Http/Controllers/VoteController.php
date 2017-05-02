@@ -10,13 +10,13 @@ use App\RegisteredVote;
 class VoteController extends Controller
 {
     public function show() {
-		if(!session()->has('user_id')) {
+		if(!session()->has('user_code')) {
 			return redirect('/');
 		}
 
 		$motion = Motion::active()->first();
 
-		if(is_null($motion) or $motion->registered->where('user_id', '=', session('user_id') )->count() ) {
+		if(is_null($motion) or $motion->registered->where('user_code', '=', session('user_code') )->count() ) {
 			return redirect('/vote/wait');
 		}
 
@@ -27,7 +27,7 @@ class VoteController extends Controller
 	}
 
 	public function store(Request $request) {
-		if(!session()->has('user_id')) {
+		if(!session()->has('user_code')) {
 			return redirect('/');
 		}
 
@@ -37,7 +37,7 @@ class VoteController extends Controller
 		]);
 
 		RegisteredVote::create([
-			'user_id' => session('user_id'),
+			'user_code' => session('user_code'),
 			'motion_id' => $request->motion_id,
 			'ip_from' => $request->ip(),
 		]);
@@ -46,13 +46,13 @@ class VoteController extends Controller
 	}
 
 	public function wait() {
-		if(!session()->has('user_id')) {
+		if(!session()->has('user_code')) {
 			return redirect('/');
 		}
 
 		$motion = Motion::active()->first();
 
-		if(!(is_null($motion) or $motion->registered->where('user_id', '=', session('user_id') )->count() ) ){
+		if(!(is_null($motion) or $motion->registered->where('user_code', '=', session('user_code') )->count() ) ){
 			return redirect('/vote');
 		}
 

@@ -46,7 +46,7 @@ class CreateParticipantsJob implements ShouldQueue
 
 			Participant::create([
 				'name'    => $participantData[0],
-				'user_id' => $participantData[1],
+				'user_code' => $participantData[1],
 				'email'   => $participantData[2],
 				'verification_code' => random_int(100000, 999999),
 				'registered_on' => null,

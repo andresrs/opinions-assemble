@@ -38,11 +38,11 @@ class AdminParticipantController extends Controller
 
 	public function verify(VerifyParticipantRequest $request) {
 		$view_params = [
-			'search_id' => $request->user_id,
+			'search_id' => $request->user_code,
 			'all_motions' => Motion::latest()->get(),
 		];
 
-		$participant = Participant::where('user_id', $request->user_id)->first();
+		$participant = Participant::where('user_code', $request->user_code)->first();
 		if($participant) {
 			$participant->registered_on = Carbon::now();
 			$participant->save();
