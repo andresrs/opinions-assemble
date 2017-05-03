@@ -16,17 +16,8 @@
 		@yield('nav-menu')
 	</ul>
 	@if ( !session()->has('user_code') )
-		<div id="navbar" class="navbar-collapse collapse">
-		  <form action="{{ url('main/login') }}" class="navbar-form navbar-right" role="form" method="POST">
-			{{ csrf_field() }}
-			<div class="form-group">
-			  <input name='user_code' type="text" placeholder="User ID" class="form-control">
-			</div>
-			<div class="form-group">
-			  <input name='verification_code' type="password" placeholder="Code" class="form-control">
-			</div>
-			<button type="submit" class="btn btn-success">Sign in</button>
-		  </form>
+		<div id="navbar" class="navbar-collapse collapse navbar-right">
+			<a href=" {{ url('/main/login') }}" class="btn btn-success" role="button">Sign in</a>
 		</div>
 	@else
 		<div id="navbar" class="navbar-collapse collapse navbar-right">

@@ -12,6 +12,16 @@ class MainController extends Controller
 		return view('layouts.home');
 	}
 
+	public function loginPage() {
+		return view('user.login', [
+			'loginName' => 'User ID',
+			'loginField' => 'user_code',
+			'loginUrl' => '/main/login',
+			'passName' => 'Code',
+			'passField' => 'verification_code',
+		]);
+	}
+
 	public function login(LogInMainRequest $request) {
 		$participants = Participant::registered()->verify($request->user_code, $request->verification_code)->get();
 		if(count($participants) <= 0) {
