@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class AdminMotionController extends Controller
 {
+	function __construct() {
+		$this->middleware('auth');
+	}
+
     public function create() {
 		$motion = Motion::active()->first();
 

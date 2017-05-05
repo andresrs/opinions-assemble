@@ -14,6 +14,15 @@ use ZipArchive;
 
 class AdminController extends Controller
 {
+	function __construct() {
+		$this->middleware('auth',[
+			'except' => [
+				'loginPage',
+				'login',
+			],
+		]);
+	}
+
     public function show() {
 		if((Participant::all()->count() == 0) and !session()->has('job_queued')) {
 			return redirect('/admin/participant');
@@ -73,5 +82,25 @@ class AdminController extends Controller
 		$finalFile = Storage::move('final_statistics.zip', 'prev/' . Carbon::now()->format('Ymd_Hi') . '.csv');
 
 		return redirect('/admin/participant');
+	}
+
+	public function loginPage() {
+		return view('user.login', [
+			'loginUrl' => '/admin/login',
+		]);
+	}
+
+	public function login() {
+		if(!auth()->attempt(request(['email', 'password']))) {
+			return back();
+		}
+
+		return redirect('/admin/participant');
+	}
+
+	public function logout() {
+		auth()->logout();
+
+		return redirect('/admin/login');
 	}
 }

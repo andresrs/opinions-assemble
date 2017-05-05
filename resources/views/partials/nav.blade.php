@@ -15,16 +15,23 @@
 	<ul class="nav navbar-nav">
 		@yield('nav-menu')
 	</ul>
-	@if ( !session()->has('user_code') )
+	@if ( auth()->check() )
 		<div id="navbar" class="navbar-collapse collapse navbar-right">
-			<a href=" {{ url('/main/login') }}" class="btn btn-success" role="button">Sign in</a>
+			<ul class="nav navbar-nav">
+			<li><a>Welcome, {{ auth()->user()->name }}</a></li>
+			</ul>
+			<a href=" {{ url('/admin/logout') }}" class="btn btn-danger" role="button">Sign out</a>
 		</div>
-	@else
+	@elseif ( session()->has('user_code') )
 		<div id="navbar" class="navbar-collapse collapse navbar-right">
 			<ul class="nav navbar-nav">
 			<li><a>Welcome, {{ \App\Participant::getUser(session()->get('user_code'))->first()->name }}</a></li>
 			</ul>
 			<a href=" {{ url('/main/logout') }}" class="btn btn-danger" role="button">Sign out</a>
+		</div>
+	@else
+		<div id="navbar" class="navbar-collapse collapse navbar-right">
+			<a href=" {{ url('/main/login') }}" class="btn btn-success" role="button">Sign in</a>
 		</div>
 	@endif
   </div>

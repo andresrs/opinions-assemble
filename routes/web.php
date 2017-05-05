@@ -36,6 +36,9 @@ Route::post('/admin/motion/store', 'AdminMotionController@store');
 Route::get('/admin/participant', 'AdminParticipantController@create');
 Route::post('/admin/participant/store', 'AdminParticipantController@store');
 
+Route::get('/admin/login', 'AdminController@loginPage')->name('login');
+Route::post('/admin/login', 'AdminController@login');
+Route::get('/admin/logout', 'AdminController@logout');
 Route::get('/admin/generate', 'AdminController@generate');
 Route::get('/admin/download', 'AdminController@download');
 Route::get('/admin/reset', 'AdminController@resetData');

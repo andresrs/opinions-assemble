@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 
 class AdminParticipantController extends Controller
 {
+	function __construct() {
+		$this->middleware('auth');
+	}
+
     public function create() {
 	    return view('participant.create');
 	}
