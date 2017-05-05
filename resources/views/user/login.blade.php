@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="panel-heading">Register</div>
+	<div class="panel-heading">Sign in</div>
 	<div class="panel-body">
 		<div class="panel-body">
 			@include('common.errors')

@@ -9,7 +9,7 @@
 		Search for participants
 	</div>
 	<div class="panel-body">
-		<form action="{{ url('admin/verify') }}" method="POST" class="form-horizontal">
+		<form action="{{ url('admin/register') }}" method="POST" class="form-horizontal">
 			{{ csrf_field() }}
 			<!-- Display Validation Errors -->
 			@include('common.errors')

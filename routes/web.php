@@ -27,7 +27,7 @@ Route::get('/vote/wait', 'VoteController@wait');
 Route::get('/admin', 'AdminController@show');
 
 Route::get('/admin/register', 'AdminParticipantController@register');
-Route::post('/admin/verify', 'AdminParticipantController@verify');
+Route::post('/admin/register', 'AdminParticipantController@verify');
 
 Route::get('/admin/motion', 'AdminMotionController@create');
 Route::get('/admin/motion/active', 'AdminMotionController@active');
