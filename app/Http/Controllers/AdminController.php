@@ -95,7 +95,7 @@ class AdminController extends Controller
 			return back();
 		}
 
-		return redirect('/admin/participant');
+		return redirect('/admin/register');
 	}
 
 	public function logout() {
