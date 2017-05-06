@@ -25,8 +25,7 @@ class MainController extends Controller
 	public function login(LogInMainRequest $request) {
 		$participants = Participant::registered()->verify($request->user_code, $request->verification_code)->get();
 		if(count($participants) <= 0) {
-			session()->flash('error_message', "Please go to the registration table and verify your user id and verification code.");
-			return redirect('/');
+			return redirect('/')->with('error_message', 'Please go to the registration table and verify your user id and verification code.');
 		}
 
 		session()->put("user_code", $request->user_code);

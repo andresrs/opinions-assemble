@@ -39,6 +39,9 @@ class UserController extends Controller
 
 	public function settingsStore(LogInMainRequest $request) {
 		$participant = Participant::registered()->verify($request->user_code, $request->verification_code)->first();
+		if(is_null($participant)) {
+			return back()->withErrors(['User ID has not been registered not registered.']);
+		}
 
 		$participant->user_id = auth()->user()->id;
 		$participant->save();
