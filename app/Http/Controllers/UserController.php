@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\LogInMainRequest;
 use App\Participant;
 use App\User;
 use Illuminate\Http\Request;
@@ -25,8 +26,25 @@ class UserController extends Controller
 			$url = '/admin/participant';
 		}
 
-		auth()->login($user);
+		if(!auth()->check()) {
+			auth()->login($user);
+		}
 
 		return redirect($url);
+	}
+
+	public function settings() {
+		return view('user.settings');
+	}
+
+	public function settingsStore(LogInMainRequest $request) {
+		$participant = Participant::registered()->verify($request->user_code, $request->verification_code)->first();
+
+		$participant->user_id = auth()->user()->id;
+		$participant->save();
+
+		session()->put("user_code", $request->user_code);
+
+		return redirect('/user/settings');
 	}
 }

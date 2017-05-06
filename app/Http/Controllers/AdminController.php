@@ -95,6 +95,10 @@ class AdminController extends Controller
 			return back();
 		}
 
+		if(!is_null(auth()->user()->participant)) {
+			session()->put("user_code", auth()->user()->participant->user_code);
+		}
+
 		return redirect('/admin/register');
 	}
 

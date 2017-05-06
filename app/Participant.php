@@ -29,4 +29,8 @@ class Participant extends Model {
 	public function scopeGetUser($query, $user_code) {
 		return $query->where('user_code', '=', $user_code);
 	}
+
+	public function user() {
+		return $this->belongsTo(User::class);
+	}
 }
