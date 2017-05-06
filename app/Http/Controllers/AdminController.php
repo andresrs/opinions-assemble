@@ -104,6 +104,7 @@ class AdminController extends Controller
 
 	public function logout() {
 		auth()->logout();
+		session()->pull("user_code");
 
 		return redirect('/admin/login');
 	}
