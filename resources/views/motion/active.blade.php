@@ -25,11 +25,11 @@
 						<td> {{ $votes }} </td>
 					</tr>
 					<tr>
-						<td><b>Registered Participants</b></td>
+						<td><b>Registered attendees</b></td>
 						<td>{{ $participants_registered }}</td>
 					</tr>
 					<tr>
-						<td><b>Valid Participants</b></td>
+						<td><b>Valid attendees</b></td>
 						<td>{{ $participants_total }}</td>
 					</tr>
 				</tbody>

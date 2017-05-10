@@ -6,7 +6,7 @@
 
 @section('content')
 	<div class="panel-heading">
-		Search for participants
+		Search for attendees
 	</div>
 	<div class="panel-body">
 		<form action="{{ url('admin/register') }}" method="POST" class="form-horizontal">

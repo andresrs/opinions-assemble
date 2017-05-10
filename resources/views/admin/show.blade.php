@@ -10,7 +10,7 @@
 		<div class="panel-body">
 			<div class="col-sm-9">
 				<p class="form-control-static">
-					Use the menu above to register participants and add motions for the assembly consideration.
+					Use the menu above to register attendees and add motions for the assembly consideration.
 				</p>
 			</div>
 		</div>

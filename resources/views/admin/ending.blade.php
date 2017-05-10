@@ -15,7 +15,7 @@
 			</div>
 			<div class="col-sm-9">
 				<ol class="list-group col-sm-offset-3 col-sm-6">
-					<li class="list-group-item">List of registered participants</li>
+					<li class="list-group-item">List of registered attendees</li>
 					<li class="list-group-item">Motions presented and their results</li>
 				</ol>
 			</div>
