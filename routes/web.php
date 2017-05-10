@@ -47,3 +47,7 @@ Route::get('/user/create', 'UserController@create');
 Route::post('/user/store', 'UserController@store');
 Route::get('/user/settings', 'UserController@settings');
 Route::post('/user/settings', 'UserController@settingsStore');
+
+Route::get('/install', 'InstallerController@welcome');
+Route::get('/install/user', 'InstallerController@user');
+Route::post('/install/user', 'InstallerController@userStore');

@@ -78,6 +78,7 @@ class AdminController extends Controller
 		DB::table('participants')->truncate();
 		DB::table('registered_votes')->truncate();
 		DB::table('submitted_votes')->truncate();
+		DB::table('users')->truncate();
 
 		$finalFile = Storage::move('final_statistics.zip', 'prev/' . Carbon::now()->format('Ymd_Hi') . '.csv');
 

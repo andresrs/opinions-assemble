@@ -5,9 +5,18 @@
 	<div class="panel-body">
 		<div class="panel-body">
 	@include('common.errors')
-			<form action="{{ url('/user/store') }}" method="POST" class="form-horizontal">
+			@isset($loginUrl)
+				<form action="{{ url($loginUrl) }}" method="POST" class="form-horizontal">
+			@else
+				<form action="{{ url('/user/store') }}" method="POST" class="form-horizontal">
+			@endisset
 				{{ csrf_field() }}
 				<fieldset>
+					@isset($text)
+						<div class="form-group">
+							<p>{{ $text }}</p>
+						</div>
+					@endisset
 					<div class="form-group">
 						<label class='col-sm-3' for="name">Name:</label>
 						<input id="name" name="name" type="text" required class="form-control">

@@ -1,15 +1,21 @@
 # opinions-assemble
 > A server app that allows registering attendies to an assembly and facilitates voting for motions presented.
 
-A server app that allows registering attendies to an assembly and facilitates voting for motions presented.
+A server app that allows registering attendees to an assembly and facilitates voting for motions presented.
 
 ## Installation
 
 ### Requisites
 
-* PHP 7.1 (it could work for earlier versions, but it hasn't been tested)
-* Composer 1.4 or later (be sure to follow the [https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx](instructions to install))
-* A MySQL or MariaDB database server running.
+* PHP 5.6.4 or higher
+* PHP Extensions:
+	* OpenSSL
+	* PDO
+	* Mbstring
+	* Tokenizer
+	* XML
+* Composer 1.4 or later (be sure to follow the [https://getcomposer.org/doc/00-intro.md](instructions to install))
+* A MySQL or MariaDB database server running. (It could work on PostgreSQL, but it hasn't been tested.)
 
 OS X & Linux:
 
@@ -23,15 +29,13 @@ OS X & Linux:
 			php artisan migrate
 		```
 
+1. Configure a cron job to run the following command `php artisan queue:work --once`.
 1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1
-1. Head to http://yourserver.tld/participant/create and upload a CSV file containing the following columns:
+1. Head to http://yourserver.tld/install and follow the instructions.
+1. Create and upload a CSV file containing the following columns:
 	1. Name
-	2. ID that will be used to identify the participants
-	3. E-mail that the participants may receive messages
-
-## Usage example
-
-*Under construction*
+	2. ID that will be used to identify the attendees
+	3. E-mail that the attendees may receive messages
 
 ## Development setup
 
@@ -39,14 +43,20 @@ OS X & Linux:
 
 ## Release History
 
-* 0.0
-    * Starting project
+* 1.0
+    * Upload attendee list
+	* Register attendees that arrive at the assembly
+	* Attendees sign in to vote on motions presented
+	* Present motions to be voted on
+		* Attendees will have 20 minutes to submit their votes
+	* Show results for all the motions voted
 
 ## Resources
 
 * [How to write a great README for your GitHub project](https://dbader.org/blog/write-a-great-readme-for-your-github-project) by Dan Bader
 * [HTML5Boilerplate](https://html5boilerplate.com/) and [http://www.initializr.com/](Initializr).
 	* Updated to [jQuery 3.2.1](https://jquery.com/) and [Bootstrap 3.3.7](http://getbootstrap.com/).
+* [Laravel 5.4 from scratch](https://laracasts.com/series/laravel-from-scratch-2017/)
 
 ## Meta
 
