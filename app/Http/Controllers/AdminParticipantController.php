@@ -36,6 +36,8 @@ class AdminParticipantController extends Controller
 
 	public function register() {
 		return view('participant.verify', [
+			'cnt_eligible' => Participant::all()->count(),
+			'cnt_registered' => Participant::registered()->count(),
 			'all_motions' => Motion::latest()->get(),
 		]);
 	}

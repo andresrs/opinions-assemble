@@ -41,6 +41,8 @@ class AdminController extends Controller
 		}
 
 		return view($view, [
+			'cnt_eligible' => Participant::all()->count(),
+			'cnt_registered' => Participant::registered()->count(),
 			'all_motions' => Motion::latest()->get(),
 			'file_ready' => $file_ready,
 		]);

@@ -1,6 +1,17 @@
 @section('left')
 	@parent
 
+	@if ( isset($cnt_registered) and isset($cnt_eligible) )
+		<div class="list-group list-group-root well">
+			<p class="list-group-item">
+				<b>Registered</b>: {{ $cnt_registered }}
+			</p>
+			<p class="list-group-item">
+				<b>Eligible</b>: {{ $cnt_eligible }}
+			</p>
+		</div>
+	@endif
+
 	@if ( isset($all_motions) )
 		<div class="list-group list-group-root well">
 		@foreach ($all_motions as $m)
