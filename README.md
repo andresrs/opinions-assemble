@@ -14,7 +14,7 @@ A server app that allows registering attendees to an assembly and facilitates vo
 	* Mbstring
 	* Tokenizer
 	* XML
-* Composer 1.4 or later (be sure to follow the [https://getcomposer.org/doc/00-intro.md](instructions to install)
+* Composer 1.4 or later (be sure to follow the [instructions to install](https://getcomposer.org/doc/00-intro.md)
 * A MySQL or MariaDB database server running. (It could work on PostgreSQL, but it hasn't been tested.)
 
 OS X & Linux:
