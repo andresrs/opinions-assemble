@@ -15,7 +15,8 @@ class InstallerController extends Controller
 	public function user() {
 		return view('user.create', [
 			'loginUrl' => 'install/user',
-			'text' => 'Hello world',
+			'text' => '<p>This account will allow you to administer the system. You will be able to register create motions, and '.
+						'view the results when the voting ends.</p><p>You can also create more accounts </p>',
 		]);
 	}
 

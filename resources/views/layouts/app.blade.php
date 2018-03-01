@@ -10,11 +10,11 @@
 			<div class="panel panel-primary">
 				@yield('content')
 			</div>
-       </div>
+        </div>
       </div>
+    </div>
 
 	@include( 'partials.footer' )
-    </div>
 
 	@include( 'partials.end' )
     </body>
