@@ -21,21 +21,28 @@ OS X & Linux:
 
 1. Download the latest release [https://github.com/andresrs/opinions-assemble/releases](here).
 1. Unzip the package.
+1. Configure a `.env` file in the OA folder.
 1. Upload the contents of the folder to your server.
 1. Run the following commands on the server:
 
 		```
 			composer install
+			php artisan optimize
 			php artisan migrate
 		```
 
 1. Configure a cron job to run the following command `php artisan /path/to/your/project/artisan schedule:run >> /dev/null 2>&1`.
-1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1
+1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1/
 1. Head to http://yourserver.tld/install and follow the instructions.
 1. Create and upload a CSV file containing the following columns:
 	1. Name
 	2. ID that will be used to identify the attendees
 	3. E-mail that the attendees may receive messages
+
+## Troubleshooting
+
+- Make sure the `storage` folder and everything in it is writable by the web server user.
+- Make sure to configure or disable SELinux.
 
 ## Development setup
 
