@@ -21,12 +21,13 @@ OS X & Linux:
 
 1. Download the latest release [https://github.com/andresrs/opinions-assemble/releases](here).
 1. Unzip the package.
-1. Configure a `.env` file in the OA folder.
+1. Copy `.env.example` to `.env` and modify it to match the configuration of the server.
 1. Upload the contents of the folder to your server.
 1. Run the following commands on the server:
 
 		```
 			composer install
+			php artisan key:generate
 			php artisan optimize
 			php artisan migrate
 		```
@@ -46,7 +47,8 @@ OS X & Linux:
 
 ## Development setup
 
-*Under construction*
+Currently using a basic [Lando](https://docs.devwithlando.io/) development setup. After installing it, just run
+`lando start`. 
 
 ## Release History
 
