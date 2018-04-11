@@ -1,0 +1,40 @@
+name: opinions-assemble
+proxy:
+  nginx:
+    - opinions.lndo.site
+services:
+  appserver:
+    type: php:7.2
+    webroot: public
+    via: nginx
+    ssl: false
+  database:
+    type: mariadb
+#    portforward: 3310
+    creds:
+      user: opinions
+      password: assemble
+      database: oa
+#  node:
+#    type: node:6.10
+#    globals:
+#      grunt-cli: "latest"
+tooling:
+  composer:
+    service: appserver
+    description: Run composer commands
+    cmd:
+      - composer
+      - --ansi
+  php:
+    service: appserver
+  mysql:
+    service: database
+    description: Drop into a MySQL shell
+    user: root
+#  node:
+#    service: node
+#  npm:
+#    service: node
+#  grunt:
+#    service: node
