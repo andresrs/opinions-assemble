@@ -32,6 +32,10 @@ tooling:
     service: database
     description: Drop into a MySQL shell
     user: root
+  bash:
+    service: appserver
+    cmd:
+      - bash
 #  node:
 #    service: node
 #  npm:
