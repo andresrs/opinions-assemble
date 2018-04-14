@@ -42,6 +42,8 @@ OS X & Linux:
 Currently using a basic [Lando](https://docs.devwithlando.io/) development setup. After installing it, just run
 `lando start`. 
 
+When jobs are waiting to run, manually run `lando php artisan queue:work --once`
+
 ## Release History
 
 * 1.0
