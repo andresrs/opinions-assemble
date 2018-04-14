@@ -24,7 +24,7 @@ OS X & Linux:
 1. Copy `.env.example` to `.env` and modify it to match the configuration of the server.
 1. Upload the contents of the folder to your server.
 1. Run the `install.sh` script.
-1. Configure a cron job to run the following command `php artisan /path/to/your/project/artisan schedule:run >> /dev/null 2>&1`.
+1. Configure a cron job to run the following command `php /path/to/your/project/artisan schedule:run >> /dev/null 2>&1`.
 1. Access it through the HTTP server address. For example, http://yourserver.tld/ or http://127.0.0.1/
 1. Head to http://yourserver.tld/install and follow the instructions.
 1. Create and upload a CSV file containing the following columns:
