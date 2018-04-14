@@ -2,6 +2,8 @@
 
 namespace App\Jobs;
 
+ini_set("auto_detect_line_endings", true);
+
 use App\Participant;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
