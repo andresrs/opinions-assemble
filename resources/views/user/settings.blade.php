@@ -1,10 +1,14 @@
-@extends('layouts.app')
+@extends('layouts.twocol')
+
+@include('partials.usermenu')
+
+@include('partials.navadmin')
 
 @section('content')
 	<div class="panel-heading">Register to participate in assembly</div>
 	<div class="panel-body">
 		<div class="panel-body">
-	@include('common.errors')
+			@include('common.errors')
 			<form action="{{ url('/user/settings') }}" method="POST" class="form-horizontal">
 				{{ csrf_field() }}
 				<fieldset>
@@ -22,9 +26,9 @@
 								Register
 							</button>
 						</div>
-					</fieldset>
-				</form>
-			</div>
+					</div>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 @endsection
