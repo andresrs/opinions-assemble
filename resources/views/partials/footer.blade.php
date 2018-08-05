@@ -1,5 +1,5 @@
 <hr>
 
 <footer>
-	<p>&copy; Andres Rosado-Sep&uacute;lveda 2017</p>
+	<p>&copy; 2017-2018 Andres Rosado-Sep&uacute;lveda</p>
 </footer>
